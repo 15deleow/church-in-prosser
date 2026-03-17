@@ -1,4 +1,4 @@
-import { createCleanupManager } from './cleanup-manger.js';
+import { createCleanupManager } from './cleanup-manager.js';
 import { initNavigation } from "../components/navigation.js";
 import { initHomePage } from "../pages/home.js";
 import { initAboutPage } from "../pages/about.js";
@@ -10,9 +10,6 @@ export function initApp() {
     const cleanupManager = createCleanupManager();
     const currentPage = document.body.dataset.page;
 
-    // Initialize navigation and add its cleanup function to the manager
-    cleanupManager.add(initNavigation());
-
     // Page-specific initialization
     const pageInitializers = {
         home: initHomePage,
@@ -21,6 +18,9 @@ export function initApp() {
         'find-us': initFindUsPage,
         live: initLivePage
     };
+
+    // Initialize navigation and add its cleanup function to the manager
+    cleanupManager.add(initNavigation());
 
     // Call the initializer for the current page, if it exists, and add its cleanup function to the manager
     const initPage = pageInitializers[currentPage];

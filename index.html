@@ -29,21 +29,28 @@
                 </div>
             </div>
 
-            <div class="main-nav">
+            <nav class="main-nav">
                 <div class="container">
-                        <ul class="nav-menu">
-                            <li class="nav-indicator" aria-hidden="true"></li>
-                            <li class="nav-item nav-item--active"><a href="/">Home</a></li>
-                            <li class="nav-item"><a href="/about.html">About Us</a></li>
-                            <li class="nav-item"><a href="/events.html">Events</a></li>
-                            <li class="nav-item"><a href="/find-us.html">Find Us</a></li>
-                            <li class="nav-item"><a href="/live.html">Live Conference</a></li>
-                        </ul>
+                        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" type="button">
+                            <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+                            <span class="nav-toggle-text">Toggle navigation</span>
+                        </button>
+
+                        <div class="nav-menu-wrap">
+                            <ul class="nav-menu">
+                                <li class="nav-item nav-item--active"><a href="/">Home</a></li>
+                                <li class="nav-item"><a href="about.html">About Us</a></li>
+                                <li class="nav-item"><a href="events.html">Events</a></li>
+                                <li class="nav-item"><a href="find-us.html">Find Us</a></li>
+                                <li class="nav-item"><a href="live.html">Live Conference</a></li>
+                            </ul>
+                            <div class="nav-indicator" aria-hidden="true"></div>
+                        </div>
                 </div>
-            </div>
+            </nav>
         </header>
-        <main></main>
-        <footer></footer>
+        <main class="site-main"></main>
+        <footer class="site-footer"></footer>
         <script type="module" src="js/main.js"></script>
     </body>
 </html>
