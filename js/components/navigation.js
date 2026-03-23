@@ -5,6 +5,7 @@ export function initNavigation() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenuWrap = document.querySelector('.nav-menu-wrap');
     const desktopMediaQuery = window.matchMedia('(min-width: 900px)');
+    let isNavigating = false;
 
     if(!navMenu || !navItems.length) {
         console.error('Navigation initialization failed: Required elements not found.');
@@ -16,22 +17,27 @@ export function initNavigation() {
      * 
      * @param {HTMLElement} targetItem 
      */
-    function moveIndicator(targetItem) {
+    function moveIndicator(targetItem, animate = true) {
         if(!navIndicator || !targetItem || !desktopMediaQuery.matches) {
             return;
         }
 
-        const targetLink = targetItem.querySelector('a');
+        // const targetLink = targetItem.querySelector('a');
         const menuRect = navMenu.getBoundingClientRect();
-        const linkRect = targetLink.getBoundingClientRect();
+        const itemRect = targetItem.getBoundingClientRect();
 
-        if(!targetLink || !menuRect || !linkRect){
-            console.error('Failed to calculate positions for navigation indicator.');
-            return;
+        if(!animate) {
+            navIndicator.classList.remove('is-ready');
         }
 
-        navIndicator.style.width = `${linkRect.width}px`;
-        navIndicator.style.left = `${linkRect.left - menuRect.left}px`;
+        navIndicator.style.width = `${itemRect.width}px`;
+        navIndicator.style.left = `${itemRect.left - menuRect.left}px`;
+
+        if(!animate) {
+            requestAnimationFrame(() => {
+                navIndicator.classList.add('is-ready');
+            });
+        }
     }
 
     /**
@@ -53,12 +59,26 @@ export function initNavigation() {
     }
 
     /**
+     * Clears the hovered state from all navigation items.
+     */
+    function clearHoveredState() {
+        navItems.forEach(item => {
+            item.classList.remove('is-hovered');
+        });
+    }
+
+    /**
      * Handles the mouse enter event for navigation items.
      * 
      * @param {Event} event 
      */
     function handleMouseEnter(event) {
+        if(isNavigating) return;
         const targetItem = event.currentTarget;
+
+        navMenu.classList.add('is-hovering');
+        clearHoveredState();
+        targetItem.classList.add('is-hovered');
         moveIndicator(targetItem);
     }
 
@@ -66,7 +86,10 @@ export function initNavigation() {
      * Handles the mouse leave event for the navigation menu.
      */
     function handleMouseLeave() {
+        if(isNavigating) return;
         const activeNavItem = getActiveItem();
+        navMenu.classList.remove('is-hovering');
+        clearHoveredState();
         moveIndicator(activeNavItem);
     }
 
@@ -75,13 +98,35 @@ export function initNavigation() {
      * @returns {void}
      */
     function handleToggleClick() {
-        if(!navMenuWrap || !navToggle) {
+        const navIcon = navToggle.querySelector('.nav-toggle-icon');
+        
+        if(!navMenuWrap || !navToggle || !navIcon) {
             console.error('Navigation toggle elements not found.');
             return;
         }
 
         const isOpen = navMenuWrap.classList.toggle('is-open');
         navToggle.setAttribute('aria-expanded', String(isOpen));
+        navIcon.setAttribute('aria-hidden', String(false));
+    }
+
+    /**
+     * Handles the click event for navigation items with href="#", preventing default behavior and updating active state.
+     */
+    function onNavigationItemClick(event) {
+        const targetItem = event.currentTarget;
+        const link = targetItem.querySelector('a');
+
+        if (!link) {
+            return;
+        }
+
+        if (targetItem.classList.contains('nav-item--active')) {
+            event.preventDefault();
+            return;
+        }
+
+        isNavigating = true;
     }
 
     /**
@@ -97,13 +142,10 @@ export function initNavigation() {
         }
     }
 
-    if(desktopMediaQuery.matches) {
-        resetToActiveItem();
-    }
-
     // Attach event listeners to navigation items and menu
     navItems.forEach(item => {
         item.addEventListener('mouseenter', handleMouseEnter);
+        item.addEventListener('click', onNavigationItemClick);
     });
 
     // Reset indicator on mouse leave and window resize
@@ -117,13 +159,12 @@ export function initNavigation() {
     }
 
     // Initialize the indicator position to the active item
-    moveIndicator(activeNavItem);
+    moveIndicator(getActiveItem(), false);
 
     // Return a cleanup function to remove event listeners when needed
     return function cleanupNavigation() {
         if(navIndicator) {
-            navIndicator.style.width = '';
-            navIndicator.style.left = '';
+            navIndicator.classList.remove('is-ready');
         }
 
         if(navMenuWrap){
@@ -137,6 +178,7 @@ export function initNavigation() {
 
         navItems.forEach(item => {
             item.removeEventListener('mouseenter', handleMouseEnter);
+            item.removeEventListener('click', onNavigationItemClick);
         });
 
         navMenu.removeEventListener('mouseleave', handleMouseLeave);
