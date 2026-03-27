@@ -1,0 +1,73 @@
+.welcome-title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 16px;
+}
+
+/* Spanish (primary) */
+.welcome-es {
+    font-family: var(--font-heading);
+    font-size: clamp(1.9rem, 4.5vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-text-main);
+}
+
+/* English (secondary) */
+.welcome-en {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+}
+
+.welcome-section {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.welcome-message {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--color-text-secondary);
+    margin-bottom:32px;
+}
+
+.welcome-verse {
+    max-width: 700px;
+    margin: 1rem auto 0.5rem auto;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1rem;
+    text-align: left;
+}
+
+.welcome-quote {
+    margin-bottom: 8px;
+}
+
+.welcome-verse-reference{
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.05em;
+    margin-bottom: 40px;
+}
+
+.section--first {
+    padding-top: clamp(32px, 5vh, 80px);
+}
+
+.meeting-card {
+    margin: 0 auto;
+    margin-top: 0; /* spacing already handled above */
+    padding: 24px 20px;
+    max-width: 520px;
+
+    background: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
