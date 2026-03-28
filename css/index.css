@@ -2,8 +2,9 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
-    margin-bottom: 16px;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-xs);
+    line-height: 1.1;
 }
 
 /* Spanish (primary) */
@@ -25,36 +26,41 @@
 
 .welcome-section {
     text-align: center;
-    padding-top: 40px;
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);    
 }
 
 .welcome-message {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     color: var(--color-text-secondary);
-    margin-bottom:32px;
+    margin-bottom: var(--space-lg);
 }
 
 .welcome-verse {
-    max-width: 700px;
-    margin: 1rem auto 0.5rem auto;
+    max-width: 800px;
+    margin: 0 auto var(--space-lg) auto;
+    padding-left: 0;
+    border-left: none;
+    text-align: center;
     font-style: italic;
-    color: var(--color-text-secondary);
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--color-text-main);
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
     line-height: 1.6;
-    border-left: 3px solid var(--color-accent);
-    padding-left: 1rem;
-    text-align: left;
 }
 
 .welcome-quote {
-    margin-bottom: 8px;
+    margin: 0;
 }
 
-.welcome-verse-reference{
+.welcome-verse-reference {
+    margin-top: var(--space-2xs);
+    margin-bottom: 0;
     font-size: 0.85rem;
+    letter-spacing: 0.03em;
     color: var(--color-text-secondary);
-    letter-spacing: 0.05em;
-    margin-bottom: 40px;
 }
 
 .section--first {
@@ -63,11 +69,49 @@
 
 .meeting-card {
     margin: 0 auto;
-    margin-top: 0; /* spacing already handled above */
-    padding: 24px 20px;
-    max-width: 520px;
+    max-width: 500px;
+    padding: var(--space-lg);         /* 24px */
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+    background-color: var(--color-white);
+}
 
-    background: var(--color-white);
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+.meeting-times {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.meeting-times li {
+    font-size: 15px;
+}
+
+.meeting-times li + li {
+    margin-top: var(--space-md);
+}
+
+.meeting-times strong {
+    display: block;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+}
+
+.meeting-times li span {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: var(--space-2xs);
+}
+
+.meeting-card-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: var(--color-text-main);
+    margin-bottom: var(--space-sm);
+    line-height: 1.25;
+}
+
+.events-section {
+    padding-top: var(--space-xl);
 }

@@ -1,88 +1,51 @@
 :root {
-    /* =========================================
-                    Colors
-    ========================================= */
-    /* Primary Colors */
+    /* Colors */
     --color-primary: #1F5E4F;
-    /* Forest Green */
     --color-primary-dark: #17483D;
-    /* Dark Green (hover/active) */
-
-    /* Accent */
     --color-accent: #D4A437;
-    /* Warm Gold */
-
-    /* Backgrounds */
     --color-background: #FAFAF7;
-    /* Soft Warm White */
     --color-section: #F1F1ED;
-    /* Light Warm Gray */
-
-    /* Optional Highlight */
     --color-highlight: #E8F2EF;
-    /* Soft Green Tint */
-
-    /* Text Colors */
     --color-text-main: #2B2B2B;
-    /* Charcoal */
     --color-text-secondary: #6B6B6B;
-    /* Muted Gray */
-
-    /* Neutral */
     --color-white: #FFFFFF;
 
-    /* =========================================
-                    Typography
-    ========================================= */
+    /* Typography */
     --font-heading: "Merriweather", serif;
     --font-body: "Source Sans 3", sans-serif;
     --line-height-base: 1.6;
     --font-size-base: 16px;
 
-    /* =========================================
-                    Layout
-    ========================================= */
-
+    /* Layout */
     --container-width: clamp(1000px, 70vw, 1400px);
     --container-padding: 20px;
-
     --section-spacing-desktop: 80px;
     --section-spacing-tablet: 70px;
     --section-spacing-mobile: 50px;
 
+    /* Spacing */
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 80px;
 
-    /* =========================================
-                Spacing Scale
-    ========================================= */
-
-    --space-xs: 5px;
-    --space-sm: 10px;
-    --space-md: 20px;
-    --space-lg: 40px;
-    --space-xl: 80px;
-
-    /* =========================================
-                    Buttons
-    ========================================= */
-
+    /* Buttons */
     --button-height: 48px;
     --button-height-large: 60px;
-
     --button-padding-x: 24px;
     --button-padding-y: 14px;
 
-
-    /* =========================================
-                Borders & Radius
-    ========================================= */
+    /* Borders & Radius */
     --border-radius-small: 4px;
     --border-radius-medium: 8px;
     --border-radius-large: 12px;
 
-
-    /* =========================================
-                        Shadows
-    ========================================= */
+    /* Shadows */
     --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.08);
     --shadow-medium: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
@@ -107,7 +70,8 @@ html {
 /* Base body Styles */
 body {
     min-height: 100vh;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
     background-color: var(--color-background);
     color: var(--color-text-main);
     font-family: var(--font-body);
@@ -115,6 +79,11 @@ body {
     line-height: var(--line-height-base);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    min-height: 100%;
+    margin: 0;
 }
 
 /* Media Defaults */
@@ -250,7 +219,7 @@ small {
 .hero-band {
     position: relative;
     width: 100%;
-    height: clamp(180px, 24vh, 320px);
+    height: clamp(160px, 20vh, 260px);
     background-image: url("../assets/images/church_front_landscape.jpg");
     background-size: cover;
     background-position: center 80%;
@@ -508,5 +477,15 @@ small {
 }
 
 .site-main {
-    background-color: var(--color-background);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--space-md) 0;
+    font-size: 0.9rem;
 }
