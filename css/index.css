@@ -26,7 +26,7 @@
 
 .welcome-section {
     text-align: center;
-    padding-top: var(--space-2xl);
+    padding-top: var(--space-xl);
     padding-bottom: var(--space-2xl);    
 }
 
@@ -36,7 +36,6 @@
     margin-right: auto;
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     color: var(--color-text-secondary);
-    margin-bottom: var(--space-lg);
 }
 
 .welcome-verse {
@@ -67,13 +66,26 @@
     padding-top: clamp(32px, 5vh, 80px);
 }
 
-.meeting-card {
+.info-section {
     margin: 0 auto;
-    max-width: 500px;
-    padding: var(--space-lg);         /* 24px */
+    max-width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    justify-content: center;
+    align-items: stretch;
+}
+
+.meeting-card, .weekly-scripture {
+    flex: 1 1 460px;
+    max-width: 520px;
+    padding: var(--space-lg);
     border-radius: var(--border-radius-large);
     box-shadow: var(--shadow-medium);
     background-color: var(--color-white);
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
 }
 
 .meeting-times {
@@ -104,14 +116,122 @@
     margin-top: var(--space-2xs);
 }
 
-.meeting-card-title {
+.meeting-card-title, .weekly-scripture-title {
     font-family: var(--font-heading);
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
     color: var(--color-text-main);
     margin-bottom: var(--space-sm);
     line-height: 1.25;
+    text-wrap: balance;
+}
+
+.weekly-scripture-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 320px;
+}
+
+.weekly-scripture-list li {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.weekly-scripture-list li + li {
+    margin-top: var(--space-xl);
+}
+
+.weekly-scripture-list strong {
+    display: block;
+    color: var(--color-text-main);
+    font-weight: 500;
+    font-size: 12pt;
+}
+
+.weekly-scripture-list li span {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.meeting-card-title,
+.weekly-scripture-title,
+.weekly-scripture-list li span {
+    text-wrap: balance;
 }
 
 .events-section {
     padding-top: var(--space-xl);
+}
+
+@media (max-width: 899px) {
+    .welcome-section {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .welcome-title {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .welcome-subtitle {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+    }
+
+    .welcome-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .welcome-verse {
+        margin-top: var(--space-sm);
+        font-size: 0.95rem;
+    }
+
+    .info-section {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+        padding: 0 var(--space-md);
+    }
+
+    .meeting-card,
+    .weekly-scripture {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: var(--space-md);
+        display: block;
+        flex: none;
+    }
+
+    .meeting-card-title,
+    .weekly-scripture-title {
+        font-size: 1.25rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .meeting-times li,
+    .weekly-scripture-list li {
+        font-size: 0.95rem;
+    }
+
+    .meeting-times li span,
+    .weekly-scripture-list li span {
+        font-size: 1.05rem;
+    }
+
+    .weekly-scripture-list {
+        max-width: none;
+    }
+
+    .meeting-times li + li {
+        margin-top: var(--space-sm);
+    }
+
+    .weekly-scripture-list li + li {
+        margin-top: var(--space-md);
+    }
 }
