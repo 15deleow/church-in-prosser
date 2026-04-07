@@ -241,14 +241,14 @@
 ****************/
 .events-section {
     padding: var(--space-xl) 0;
-    background-color: var(--color-soft-green-tint);
+    /* background-color: var(--color-soft-green-tint); */
 }
 
 .event-title-wrap {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
     gap: var(--space-md);
 }
 
@@ -271,7 +271,7 @@
 
 .event-title-wrap,
 .event-list-wrapper {
-    max-width: 948px; /* 3 cards of 300px + 2 gaps of 24px */
+    max-width: 1000px; /* 3 cards of 300px + 2 gaps of 24px */
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -316,7 +316,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-md);
     border-radius: var(--border-radius-large);
     box-shadow: var(--shadow-medium);
     background-color: var(--color-white);
