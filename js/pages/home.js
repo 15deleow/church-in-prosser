@@ -70,6 +70,11 @@ function renderHomePageEvents(eventList, events) {
         event_name.textContent = escapeHtml(event.title);
         event_item.appendChild(event_name);
 
+        const event_location = document.createElement('p');
+        event_location.classList.add('event-location');
+        event_location.textContent = escapeHtml(event.location);
+        event_item.appendChild(event_location);
+
         const event_date = document.createElement('p');
         event_date.classList.add('event-date');
     
