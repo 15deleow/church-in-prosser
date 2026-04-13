@@ -62,7 +62,7 @@ function renderHomePageEvents(eventList, events) {
         // Create event card elements
         const event_card = document.createElement('li');
         const event_item = document.createElement('a');
-        event_item.href = `/events.html#${escapeHtml(event.slug)}`;
+        event_item.href = `events.html#${escapeHtml(event.slug)}`;
         event_item.classList.add('event-item');
 
         const event_name = document.createElement('h3');
