@@ -79,6 +79,10 @@
     gap: var(--space-xs);
     display: flex;
     flex-direction: column;
+
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0.4rem 0;
 }
 
 .main-section p {
@@ -109,4 +113,15 @@
     font-weight: 500;
     color: var(--color-accent);
     text-decoration: none;
+}
+
+.links-section a:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+}
+
+.event-highlight {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    transition: outline 0.3s ease;
 }

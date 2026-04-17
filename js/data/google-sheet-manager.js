@@ -104,8 +104,7 @@ export function initGoogleSheetManager() {
             title,
             startDateText: start_date,
             endDateText: end_date,
-            startDateDisplay,
-            endDateDisplay,
+            dateDisplay: createDateDisplay(startDate, endDate),
             startDate,
             endDate,
             timeSummary: String(event.time_summary || '').trim(),
@@ -178,6 +177,34 @@ export function initGoogleSheetManager() {
         // Filter out unpublished events and sort by start date.
         const upcoming = normalizedEvents.filter(isUpcomingEvent);
         return sortByStartDateAscending(upcoming);
+    }
+
+    function createDateDisplay(startDate, endDate) {
+        // Convert date object to display date range string in the format:
+        // same month: Jan 5 - 7, 2024
+        // different month: Jan 30 - Feb 2, 2024
+        // same day: Jan 5, 2024
+        if (startDate === endDate) {
+            return startDate;
+        } else if (startDate && endDate) {
+            const startMonth = startDate.toLocaleString(undefined, { month: 'short' });
+            const endMonth = endDate.toLocaleString(undefined, { month: 'short' });
+            const startDay = startDate.getDate();
+            const endDay = endDate.getDate();
+            const startYear = startDate.getFullYear();
+            const endYear = endDate.getFullYear();
+            if (startYear === endYear) {
+                if (startMonth === endMonth) {
+                    return `${startMonth} ${startDay} - ${endDay}, ${startYear}`;
+                } else {
+                    return `${startMonth} ${startDay} - ${endMonth} ${endDay}, ${startYear}`;
+                }
+            } else {
+                return `${startMonth} ${startDay}, ${startYear} - ${endMonth} ${endDay}, ${endYear}`;
+            }
+        } else {
+            return startDate || endDate || '';
+        }
     }
 
     return {

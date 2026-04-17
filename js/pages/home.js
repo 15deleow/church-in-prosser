@@ -81,14 +81,7 @@ function renderHomePageEvents(eventList, events) {
 
         const event_date = document.createElement('p');
         event_date.classList.add('event-date');
-    
-        // If start and end dates are the same, show just one date. Otherwise, show a range.
-        if (event.startDateDisplay === event.endDateDisplay) {
-            event_date.textContent = escapeHtml(event.startDateDisplay);
-        } else {
-            event_date.textContent = `${escapeHtml(event.startDateDisplay)} - ${escapeHtml(event.endDateDisplay)}`;
-        }
-
+        event_date.textContent = escapeHtml(event.dateDisplay);
         event_item.appendChild(event_date);
 
         event_card.appendChild(event_item);

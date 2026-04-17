@@ -31,6 +31,8 @@ function renderEventsPage(eventList, events) {
         return;
     }
 
+    console.log('Rendering events:', events);
+
     events.forEach(event => {
         const listItem = document.createElement("li");
         listItem.classList.add("event-list-item");
@@ -51,11 +53,7 @@ function renderEventsPage(eventList, events) {
         headerTitle.textContent = escapeHtml(event.title);
         const date = document.createElement('p');
         date.classList.add('event-date');
-        if (event.startDateDisplay === event.endDateDisplay) {
-            date.textContent = escapeHtml(event.startDateDisplay);
-        } else {
-            date.textContent = `${escapeHtml(event.startDateDisplay)} - ${escapeHtml(event.endDateDisplay)}`;
-        }
+        date.textContent = escapeHtml(event.dateDisplay);
         headerSection.appendChild(headerTitle);
         headerSection.appendChild(date);
 
