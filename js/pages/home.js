@@ -4,12 +4,6 @@ import { initGoogleSheetManager } from "../data/google-sheet-manager.js";
 const googleSheetManager = initGoogleSheetManager();
 
 export function initHomePage() {
-    // Access the event list container in the DOM
-    const eventList = document.querySelector('#event-list');
-    var isDisposed = false;  
-
-    loadHomePageEvents();
-
     async function loadHomePageEvents() {
         // If the event list container is not found, we can't load events
         if(!eventList) {
@@ -39,6 +33,12 @@ export function initHomePage() {
             renderHomePageEventsError(eventList);
         }
     }
+
+    // Access the event list container in the DOM
+    const eventList = document.querySelector('#event-list');
+    var isDisposed = false;  
+
+    loadHomePageEvents();
 
     return function cleanupHomePage() {
         isDisposed = true;

@@ -1,0 +1,112 @@
+.events-page {
+    padding: var(--space-lg) 0;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: var(--space-xs);
+    line-height: var(--line-height-tight);
+}
+
+.events-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.event-list-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.event-item {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+    background-color: var(--color-white);
+    border: 1px solid transparent;
+    text-decoration: none;
+    line-height: var(--line-height-mid);
+    transition:
+        transform 180ms cubic-bezier(.2,.9,.3,1),
+        box-shadow 180ms ease,
+        background-color 180ms ease,
+        border-color 180ms ease;
+    will-change: transform, box-shadow, border-color;
+}
+
+.event-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0,0,0,0.05);
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.event-title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-main);
+}
+
+.event-date {
+    margin: 0;
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.main-section{
+    gap: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-section p {
+    margin: 0;
+}
+
+.event-time, .event-location {
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+.event-address {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.links-section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.links-section a {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+}
