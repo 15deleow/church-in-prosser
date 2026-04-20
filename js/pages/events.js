@@ -31,8 +31,6 @@ function renderEventsPage(eventList, events) {
         return;
     }
 
-    console.log('Rendering events:', events);
-
     events.forEach(event => {
         const listItem = document.createElement("li");
         listItem.classList.add("event-list-item");
@@ -96,10 +94,43 @@ function renderEventsPage(eventList, events) {
         linksSection.appendChild(getDirections);
     });
 
-    console.log('Rendering events:', events);
+    requestAnimationFrame(() => {
+        const tag = extractTag();
+
+        if(tag) {
+            const card = eventList.querySelector(`#${tag}`);
+            if(card){
+                card.scrollIntoView({ behavior: "smooth", block: "center"});
+
+                card.classList.add('event-highlight');
+
+                window.setTimeout(() => {
+                    card.classList.remove('event-highlight');
+                }, 2200);
+            }
+        }
+    });
 }
 
-function renderEventsPageError() {
+function renderEventsPageError(errorMessage) {
+    const listItem = document.createElement("li");
+    listItem.classList.add("event-list-item");
+    eventList.appendChild(listItem);
+
+    const listArticle = document.createElement('article');
+    listArticle.classList.add('event-item');
+    listArticle.id = escapeHtml(event.slug);
+    listItem.appendChild(listArticle);
+
+    // Header Section
+    const headerSection = document.createElement('div');
+    headerSection.classList.add('header-section');
+    listArticle.appendChild(headerSection);
+
+    const headerTitle = document.createElement('h2');
+    headerTitle.classList.add('event-title');
+    headerTitle.textContent = errorMessage;
+    headerSection.appendChild(headerTitle);
 }
 
 function escapeHtml(value) {
