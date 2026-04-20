@@ -3,7 +3,6 @@ import { initNavigation } from "../components/navigation.js";
 import { initHomePage } from "../pages/home.js";
 import { initAboutPage } from "../pages/about.js";
 import { initEventsPage } from "../pages/events.js";
-import { initFindUsPage } from "../pages/find-us.js";
 import { initLivePage } from "../pages/live.js";
 
 export function initApp() {
@@ -15,7 +14,6 @@ export function initApp() {
         home: initHomePage,
         about: initAboutPage,   
         events: initEventsPage,
-        'find-us': initFindUsPage,
         live: initLivePage
     };
 
