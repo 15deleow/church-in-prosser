@@ -1,3 +1,14 @@
+.join-us-btn {
+    margin-top: var(--space-sm);
+    font-size: var(--font-size-sm);
+}
+
+.hero-actions {
+    margin-top: var(--space-lg);
+    display: flex;
+    justify-content: center;
+}
+
 .welcome-title {
     text-align: center;
     display: flex;
@@ -166,6 +177,14 @@
 }
 
 @media (max-width: 899px) {
+    .hero-actions {
+        margin-top: var(--space-md);
+    }
+    
+    .join-us-btn {
+        font-size: var(--font-size-base);
+    }
+
     .welcome-section {
         padding: var(--space-lg) var(--space-md);
     }
