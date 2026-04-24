@@ -1,9 +1,10 @@
+
 .section--alt {
     background-color: var(--color-soft-green-tint);
 }
 
 .about-us-section, .home-meetings-section, .visit-us-section {
-    padding: clamp(48px, 8vw, 80px) 0;
+    padding: clamp(40px, 6vw, 72px) 0;
 }
 
 .about-us-section, .home-meetings-section, .visit-us-section p {
@@ -34,5 +35,62 @@
 }
 
 #about-us .container {
+    max-width: 650px;
+}
+
+#about-us .section-title {
+    margin-bottom: var(--space-xl);
+}
+
+#about-us p {
+    font-size: clamp(1rem, 1.1vw, 1.125rem);
+    line-height: 1.75;
+    margin-bottom: var(--space-lg);
+}
+
+.home-meetings-section .container {
     max-width: 700px;
+}
+
+#home-meetings p {
+    font-size: clamp(1rem, 1.1vw, 1.125rem);
+    line-height: 1.75;
+}
+
+#visit-us .container {
+    max-width: 700px;
+}
+
+.visit-content {
+    text-align: left;
+}
+
+.visit-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xl);
+}
+
+#visit-us p {
+    margin-bottom: var(--space-sm);
+}
+
+#visit-us p + p {
+    margin-top: var(--space-md);
+}
+
+.visit-group strong {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--color-text-main);
+}
+
+.visit-group a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+.visit-group a:hover {
+    color: var(--color-accent);
 }
