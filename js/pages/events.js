@@ -4,8 +4,15 @@ export function initEventsPage() {
     function loadEventPageEvents() {
         // Access the Google Sheet Manager to fetch and display events
         const googleSheetManager = initGoogleSheetManager();
+
+        // Display a loading state while fetching events
+        displayLoadingCircle(eventList);
         googleSheetManager.getUpcomingEvents()
             .then(events => {
+                // Clear the loading state before rendering events
+                eventList.innerHTML = '';
+
+                // Render the events on the page
                 renderEventsPage(eventList, events);
             })
             .catch(error => {
@@ -150,6 +157,12 @@ function generateMapUrl(address) {
     } else {
         return `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
     }
+}
+
+function displayLoadingCircle(container) {
+    const loadingCircle = document.createElement('div');
+    loadingCircle.classList.add('loading-circle');
+    container.appendChild(loadingCircle);
 }
 
 /**
