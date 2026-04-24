@@ -5,6 +5,16 @@ import { initAboutPage } from "../pages/about.js";
 import { initEventsPage } from "../pages/events.js";
 import { initLivePage } from "../pages/live.js";
 
+function updateFooterYear() {
+    const footerYear = document.getElementById('year');
+
+    if (!footerYear) {
+        return;
+    }
+
+    footerYear.textContent = new Date().getFullYear();
+}
+
 export function initApp() {
     const cleanupManager = createCleanupManager();
     const currentPage = document.body.dataset.page;
@@ -19,6 +29,9 @@ export function initApp() {
 
     // Initialize navigation and add its cleanup function to the manager
     cleanupManager.add(initNavigation());
+
+    // Update the year in the footer dynamically for all pages
+    updateFooterYear();
 
     // Call the initializer for the current page, if it exists, and add its cleanup function to the manager
     const initPage = pageInitializers[currentPage];

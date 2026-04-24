@@ -11,9 +11,15 @@ export function initHomePage() {
             return;
         }
 
+        // Display a loading message while fetching events
+        eventList.innerHTML = '<li><p>Loading events...</p></li>';
+
         try {
             // Fetch events from the Google Sheet
             const events = await googleSheetManager.getUpcomingEvents();
+
+            // Remove the loading message before rendering events
+            eventList.innerHTML = '';
 
             // If the page has been disposed while fetching, do not attempt to render
             if (isDisposed) return;
