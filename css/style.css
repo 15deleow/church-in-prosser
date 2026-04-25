@@ -38,11 +38,12 @@
     --space-4xl: 80px;
 
     /* Font Size */
-    --font-size-sm: clamp(0.92rem, 0.88rem + 0.2vw, 1rem);          /*Low Emphasis*/
-    --font-size-base: clamp(0.98rem, 0.92rem + 0.3vw, 1.08rem);     /*Normal Text */
-    --font-size-md: clamp(1.05rem, 0.95rem + 0.45vw, 1.2rem);       /*Important Supporting Info */
-    --font-size-lg: clamp(1.35rem, 1.1rem + 0.9vw, 1.65rem);        /*Subtitles*/
-    --font-size-xl: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);          /*Page Tiles*/
+    --font-size-sm: clamp(0.85rem, 0.8rem + 0.25vw, 0.95rem);      /* Low emphasis */
+    --font-size-base: clamp(0.95rem, 0.9rem + 0.35vw, 1.1rem);     /* Body text */
+    --font-size-md: clamp(1.05rem, 0.95rem + 0.5vw, 1.25rem);      /* Supporting / labels */
+    --font-size-lg: clamp(1.4rem, 1.1rem + 1vw, 1.9rem);           /* Section titles (h2) */
+    --font-size-xl: clamp(1.8rem, 1.2rem + 1.5vw, 2.6rem);         /* Page titles (h1) */
+    --font-size-subject: clamp(1.3rem, 1.05rem + 0.9vw, 1.8rem);   /* General Subject highlight */
 
     /* Buttons */
     --button-height: 48px;
