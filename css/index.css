@@ -42,22 +42,33 @@
 }
 
 .welcome-message {
-    max-width: 1000px;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-base);
     color: var(--color-text-secondary);
+    line-height: var(--line-height-normal);
+}
+
+.welcome-message p {
+    margin: 0;
+}
+
+.welcome-message p + p {
+    margin-top: var(--space-sm); 
 }
 
 .welcome-verse {
-    max-width: 800px;
-    margin: 0 auto var(--space-lg) auto;
+    max-width: 720px;
+    margin: var(--space-2xl) auto var(--space-md);
     padding-left: 0;
     border-left: none;
     text-align: center;
     font-style: italic;
-    color: var(--color-text-main);
-    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    color: var(--color-text-secondary);
+    opacity: 1;
+    font-size: var(--font-size-sm);
     line-height: 1.6;
 }
 
@@ -66,9 +77,10 @@
 }
 
 .welcome-verse-reference {
-    margin-top: var(--space-2xs);
-    margin-bottom: 0;
-    font-size: 0.85rem;
+    margin-top: var(--space-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    /* font-size: 0.85rem; */
     letter-spacing: 0.03em;
     color: var(--color-text-secondary);
 }
