@@ -1,3 +1,7 @@
+.conference-join {
+    scroll-margin-top: 80px;
+}
+
 .conference-section {
     text-align: center;
     padding-top: var(--space-2xl);
@@ -176,4 +180,29 @@ h2 {
 
 .current-meeting {
     font-size: var(--font-size-md);
+}
+
+.outlines-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    column-gap: 60px;
+    row-gap: 12px;
+}
+
+.outline-item {
+    text-align: center;
+}
+
+.outlines-grid a {
+    margin: 0 6px;
+    text-decoration: underline;
+}
+
+
+
+@media (max-width: 600px) {
+    .outlines-grid {
+        grid-template-columns: 1fr;
+    }
 }
