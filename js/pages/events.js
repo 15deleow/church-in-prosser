@@ -92,6 +92,12 @@ function renderEventsPage(eventList, events) {
         moreInfo.href = escapeHtml(event.linkUrl);
         linksSection.appendChild(moreInfo);
 
+        // If link is not the samae website, open in new tab
+        if (!event.linkUrl.includes(window.location.hostname)) {
+            moreInfo.target = "_blank";
+            moreInfo.rel = "noopener noreferrer";
+        }
+
         // Get Directions
         const mapUrl = generateMapUrl(event.address);
         const getDirections = document.createElement('a');
