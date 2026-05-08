@@ -527,17 +527,23 @@ small {
     flex-direction: column;
 }
 
+.hidden {
+    display: none;
+}
+
 .site-footer {
     background-color: var(--color-primary);
     color: var(--color-white);
     text-align: center;
     padding: var(--space-md) 0;
     font-size: 0.9rem;
+    width: 100%;
 }
 
 .site-footer a {
     color: inherit;
     text-decoration: none;
+    width: inherit;
 }
 
 .site-footer a:hover {
@@ -550,6 +556,7 @@ small {
     justify-content: center;
     align-items: center;
     gap: var(--space-md);
+    width: 100%;
 }
 
 .foot-content-wrap {

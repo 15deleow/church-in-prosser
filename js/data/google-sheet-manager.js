@@ -207,6 +207,47 @@ export function initGoogleSheetManager() {
         }
     }
 
+    async function fetchZoomMeetings() {
+        const url = "";
+        try {
+            const response = await fetch(url);
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = response.text;
+            return parseZoomMeetingCSV(data);
+        } catch(error){
+            console.error(error);
+            //TODO: Display A message on the page
+        }
+    }
+
+    function parseZoomMeetingCSV(csvData){
+        if (!csvData) return [];
+        const lines = csvData.trim().split(/\r?\n/);
+        const headers = parseCSVLine(lines[0]).map(h => h.trim());
+        const meetings = lines.slice(1).map(line => {
+            const values = parseCSVLine(line);
+            const meeting = {};
+            headers.forEach((header, index) => {
+                meeting[header] = values[index] !== undefined ? values[index] : '';
+            });
+            return meeting;
+        });
+        return meetings;
+    }
+
+    function normalizeMeetingRow(meeting){
+        
+    }
+
+    async function getConferenceMeetings() {
+        const rawConferenceMeetings = fetchZoomMeetings();
+
+        const normalizeMeetings = rawConferenceMeetings.map(normalizeMeetingRow);
+    }
+
     return {
         getUpcomingEvents
     }
