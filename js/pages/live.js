@@ -1,5 +1,9 @@
 // Meeting Times
 const meetings = [
+    // {
+    //     start: new Date(Date.now() - 5 * 60000), // started 5 min ago
+    //     durationMinutes: 30
+    // },
     {
         start: new Date("2026-05-15T19:00:00-07:00"),
         durationMinutes: 120
@@ -15,7 +19,7 @@ const meetings = [
     {
         start: new Date("2026-05-17T09:45:00-07:00"),
         durationMinutes: 135 // 2 hrs 15 mins
-    }
+    },
 ];
 
 const MINUTE = 60 * 1000; // milliseconds in a minute
@@ -67,15 +71,32 @@ function isJoinable(meeting, now) {
     return currentTime >= joinWindowStart && currentTime <= joinWindowEnd;
 }
 
+function getCurrentMeetingIndex() {
+    const now = new Date();
+    const activeMeetingIndex = meetings.findIndex(meeting => isJoinable(meeting, now));
+    return activeMeetingIndex;
+}
 
 function updateJoinButtonStatus() {
     const joinButton = document.getElementById('join-button');
     const noLinkText = document.querySelector(".join-note");
+
     if (joinButton && noLinkText) {
         const activeMeeting = meetings.find(meeting => isJoinable(meeting, new Date()));
+        const activeMeetingIndex = getCurrentMeetingIndex();
         if (activeMeeting) {
             noLinkText.classList.add("hidden");
             joinButton.classList.remove('button-disabled');
+
+            // Query all schedule lines and update the live badge visibility
+            const scheduleLines = document.querySelectorAll('.schedule-line');
+            scheduleLines.forEach(line => {
+                // Get the meeting index from the data attribute
+                const meetingIndex = parseInt(line.getAttribute('data-meeting-index'), 10);
+
+                // Add 'is-live' class to the current meeting line
+                line.classList.toggle('is-live', meetingIndex === activeMeetingIndex);
+            });
         } else {
             noLinkText.classList.remove('hidden');
             joinButton.classList.add('button-disabled');
