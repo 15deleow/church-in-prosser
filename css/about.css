@@ -30,6 +30,7 @@
     text-align: center;
     font-size: clamp(1.6rem, 2.5vw, 2.2rem);
     margin-bottom: var(--space-lg);
+    padding-top: var(--space-sm);
     position: relative;
 }
 
@@ -152,8 +153,8 @@
 }
 
 .visit-us-section {
-   padding-top: var(--space-lg) !important;
-   text-align: center;
+    padding-top: var(--space-lg) !important;
+    text-align: center;
 }
 
 .visit-us-section .section-title {
@@ -204,4 +205,13 @@
 
 .visit-group a:hover {
     color: var(--color-accent);
+}
+
+.visit-button {
+    display: inline-flex;    /* Allows the link to sit inline but behave like a flex container */
+    align-items: center;     /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+    text-align: center;      /* Ensures text alignment if it wraps to multiple lines */
+    padding: 10px 20px;      
+    text-decoration: none;  
 }
