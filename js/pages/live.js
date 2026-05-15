@@ -1,9 +1,9 @@
 // Meeting Times
 const meetings = [
-    // {
-    //     start: new Date(Date.now() - 5 * 60000), // started 5 min ago
-    //     durationMinutes: 30
-    // },
+    {
+        start: new Date("2026-05-15T18:00:00-07:00"),
+        durationMinutes: 180
+    },
     {
         start: new Date("2026-05-15T19:00:00-07:00"),
         durationMinutes: 120
