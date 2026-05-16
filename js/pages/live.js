@@ -59,7 +59,7 @@ function scrollPastHero() {
  * @returns {boolean}
  */
 function isJoinable(meeting, now) {
-    const joinWindowStart = meeting.start.getTime() - 10 * MINUTE; // 10 minutes before the meeting starts
+    const joinWindowStart = meeting.start.getTime() - 30 * MINUTE; // 10 minutes before the meeting starts
     const joinWindowEnd = meeting.start.getTime() + meeting.durationMinutes * MINUTE; // until the meeting ends
     const currentTime = now.getTime(); // current time in milliseconds
 
