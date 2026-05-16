@@ -1,9 +1,5 @@
 // Meeting Times
 const meetings = [
-    // {
-    //     start: new Date(Date.now() - 5 * 60000), // started 5 min ago
-    //     durationMinutes: 30
-    // },
     {
         start: new Date("2026-05-15T19:00:00-07:00"),
         durationMinutes: 120
@@ -63,7 +59,7 @@ function scrollPastHero() {
  * @returns {boolean}
  */
 function isJoinable(meeting, now) {
-    const joinWindowStart = meeting.start.getTime() - 10 * MINUTE; // 10 minutes before the meeting starts
+    const joinWindowStart = meeting.start.getTime() - 20 * MINUTE; // 10 minutes before the meeting starts
     const joinWindowEnd = meeting.start.getTime() + meeting.durationMinutes * MINUTE; // until the meeting ends
     const currentTime = now.getTime(); // current time in milliseconds
 
