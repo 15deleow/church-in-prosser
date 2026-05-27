@@ -79,7 +79,7 @@ h2 {
 }
 
 .schedule-list {
-    max-width: 420px;
+    max-width: 450px;
     margin: 0 auto;
 }
 
@@ -230,6 +230,15 @@ h2 {
     font-size: var(--font-size-lg);
     font-weight: 700;
     width: 12rem;
+}
+
+.recording {
+    font-size: 0.82rem;
+    color: var(--color-primary);
+    text-decoration: underline;
+    white-space: nowrap;
+    opacity: 0.85;
+    margin-left: -4px;
 }
 
 
