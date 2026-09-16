@@ -1,4 +1,5 @@
 import { initGoogleSheetManager } from "../data/google-sheet-manager.js";
+import { handleLanguageToggle } from "../components/language-toggle.js";
 
 // Access the Google Sheet Manager to fetch and display events
 const googleSheetManager = initGoogleSheetManager();
@@ -45,6 +46,9 @@ export function initHomePage() {
     var isDisposed = false;  
 
     loadHomePageEvents();
+    
+    // Initialize the language toggle functionality
+    handleLanguageToggle();
 
     return function cleanupHomePage() {
         isDisposed = true;

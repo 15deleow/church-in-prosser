@@ -19,6 +19,42 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
+    <style>
+        @media (min-width: 900px) {
+            .main-nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .language-toggle {
+                background-color: transparent;
+                color: var(--color-white);
+                padding: 0 var(--space-lg);
+                border: 1px solid var(--color-accent);
+                border-radius: var(--border-radius-medium);
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.2s ease;
+            }
+
+            .language-toggle:hover {
+                background-color: var(--color-accent);
+                color: var(--color-text-main);
+            }
+
+            .language-toggle:focus-visible {
+                outline: 3px solid var(--color-accent);
+                outline-offset: -3px;
+            }
+        }
+
+        @media (max-width: 899px) {
+            .language-toggle {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body data-page="home">
@@ -51,6 +87,8 @@
                     </ul>
                     <div class="nav-indicator" aria-hidden="true"></div>
                 </div>
+            </div>
+            <div class="language-slider-wrapper">
             </div>
         </nav>
     </header>
@@ -135,7 +173,7 @@
                     &copy; <span id="year"></span> Church in Prosser
                 </p>
             </div>
-        </footer>
+    </footer>
     <script type="module" src="js/main.js"></script>
 </body>
 

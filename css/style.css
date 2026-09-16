@@ -78,6 +78,15 @@
     margin: 0;
 }
 
+/* Hide a component */
+.hidden {
+    display: none !important;
+}
+
+span, label {
+    cursor: default;
+}
+
 /* Smooth scrolling for anchor links */
 html {
     scroll-behavior: smooth;
@@ -605,5 +614,167 @@ small {
 @media (hover: none) {
     .button:hover {
         transform: none;
+    }
+}
+
+/* Language Toggle */
+@media (min-width: 900px) {
+    .main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .language-slider-wrapper {
+        padding: 0 var(--space-lg);
+    }
+
+    .slider-label-spanish {
+        right: 10px;
+    }
+
+    .slider-label-english {
+        left: 10px;
+    }
+
+    .slider-label-english,
+    .slider-label-spanish {
+        display: block;
+        position: absolute;
+        top: 8px;
+        z-index: 3;
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        color: var(--color-text-main);
+        white-space: nowrap;
+        pointer-events: none;
+        transition: opacity 200ms ease;
+    }
+
+    .slider-label-english.hidden,
+    .slider-label-spanish.hidden {
+        display: block !important;
+        opacity: 0;
+    }
+
+    .switch {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 110px;
+        height: 40px;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    /* The slider: the actual sliding part */
+    .slider {
+        position: absolute;
+        inset: 0;
+        background-color: var(--color-accent);
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    /* The circle inside the slider */
+    .slider:before {
+        position: absolute;
+        content: '';
+        height: 25px;
+        width: 25px;
+        border-radius: 50px;
+        left: 10px;
+        bottom: 4px;
+        top: 7px;
+        background-color: white;
+        transition: transform 300ms ease-in-out;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(68px);
+    }
+}
+
+@media (max-width: 899px) {
+    .language-slider-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 64px;
+        padding: 12px 20px;
+        background-color: var(--color-primary);
+    }
+
+    .switch {
+        position: relative;
+        display: block;
+        width: 110px;
+        height: 40px;
+        overflow: hidden;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .slider {
+        position: absolute;
+        inset: 0;
+        background-color: var(--color-accent);
+        border-radius: 20px;
+        transition: background-color 300ms ease;
+    }
+
+    .slider::before {
+        content: '';
+        position: absolute;
+        top: 7px;
+        left: 10px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: var(--color-white);
+        transition: transform 300ms ease-in-out;
+    }
+
+    input:checked + .slider::before {
+        transform: translateX(65px);
+    }
+
+    .slider-label-english,
+    .slider-label-spanish {
+        position: absolute;
+        top: 8px;
+        z-index: 1;
+        display: block;
+        color: var(--color-text-main);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        white-space: nowrap;
+        pointer-events: none;
+        transition: opacity 200ms ease;
+    }
+
+    .slider-label-english {
+        left: 10px;
+    }
+
+    .slider-label-spanish {
+        right: 10px;
+    }
+
+    .slider-label-english.hidden,
+    .slider-label-spanish.hidden {
+        display: block !important;
+        opacity: 0;
+    }
+
+    .switch:focus-within {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 3px;
     }
 }
