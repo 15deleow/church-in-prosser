@@ -12,9 +12,16 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
 
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <!-- Website Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+    <!-- Browser Theme Color -->
+    <meta name="theme-color" content="#1F5E4F">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
@@ -26,7 +33,11 @@
             <div class="hero-band-overlay">
                 <div class="container">
                     <div class="hero-band-content">
-                        <h1 class="hero-band-title">Church in Prosser</h1>
+                        <div class="hero-brand">
+                            <span class="church-icon church-icon--large hero-logo" aria-hidden="true"></span>
+
+                            <h1 class="hero-band-title">The Church in Prosser</h1>
+                        </div>
                     </div>
                 </div>
             </div>

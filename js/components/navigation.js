@@ -4,7 +4,7 @@ export function initNavigation() {
     const navItems = document.querySelectorAll('.nav-item');
     const navToggle = document.querySelector('.nav-toggle');
     const navMenuWrap = document.querySelector('.nav-menu-wrap');
-    const desktopMediaQuery = window.matchMedia('(min-width: 900px)');
+    const desktopMediaQuery = window.matchMedia('(min-width: 1024px)');
     let isNavigating = false;
 
     if(!navMenu || !navItems.length) {

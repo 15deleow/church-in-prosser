@@ -12,10 +12,16 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
 
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <!-- Website Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+    <!-- Browser Theme Color -->
+    <meta name="theme-color" content="#1F5E4F">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
@@ -27,9 +33,15 @@
             <div class="hero-band-overlay">
                 <div class="container">
                     <div class="hero-band-content">
-                        <h1 class="hero-band-title">The Church in Prosser</h1>
+                        <div class="hero-brand">
+                            <span class="church-icon church-icon--large hero-logo" aria-hidden="true"></span>
+
+                            <h1 class="hero-band-title">The Church in Prosser</h1>
+                        </div>
+
                         <div class="hero-actions">
-                            <a href="/about.html#visit-us" class="button button-primary button-md">Join Us This Sunday</a>
+                            <a href="/about.html#visit-us" class="button button-primary button-md">Join Us This
+                                Sunday</a>
                         </div>
                     </div>
                 </div>
@@ -69,7 +81,8 @@
 
                     <p>
                         As is true of all believers in Christ, we are members of His one Body, the church.
-                        In order to practice the oneness of the Body, we meet as the church in Prosser and are in fellowship with over 2,000 local churches worldwide to express the one Body of Christ.
+                        In order to practice the oneness of the Body, we meet as the church in Prosser and are in
+                        fellowship with over 2,000 local churches worldwide to express the one Body of Christ.
                     </p>
                 </div>
                 <div class="welcome-verse">
@@ -87,20 +100,20 @@
                                 <span class="meeting-time">10:00am - 12:00pm</span>
                             </li>
                             <li class="meeting-time-item">
-                                <strong><span class="meeting-day">Friday / Viernes</span></strong> 
+                                <strong><span class="meeting-day">Friday / Viernes</span></strong>
                                 <span class="meeting-time">7:00pm - 9:00pm</span>
                             </li>
                         </ul>
                     </div>
                     <div class="weekly-scripture">
-                        <h2 class="weekly-scripture-title">This Week’s Reading / Lectura de la Semana</h2>
+                        <h2 class="weekly-scripture-title">This Week's Reading / Lectura de la Semana</h2>
                         <ul class="weekly-scripture-list">
                             <li class="weekly-scripture-item">
-                                <strong><span class="meeting-day">Morning Revival</span></strong> 
-                                <span class="meeting-time">The Great Need for a New Revival</span>
+                                <strong><span class="meeting-day">Morning Revival</span></strong>
+                                <span class="meeting-time">The Believers (1) - Volume Two</span>
                             </li>
                             <li class="weekly-scripture-item">
-                                <strong><span class="meeting-day">House Meetings</span></strong> 
+                                <strong><span class="meeting-day">House Meetings</span></strong>
                                 <span class="meeting-time">The Life Study of John</span>
                             </li>
                         </ul>
@@ -122,20 +135,20 @@
         </section>
     </main>
     <footer class="site-footer">
-            <div class="container foot-content-wrap">
-                <div class="foot-content">
-                    <p>
-                            <a href="https://maps.app.goo.gl/LC6Zyzcy8JXcVxQM9" target="_blank"
-                            rel="noopener noreferrer">505 N River Rd, Prosser, Washington 99350, USA</a>
-                    </p>
-                    <div class="foot-divider" aria-hidden="true"></div>
-                    <p>info@churchinprosser.org</p>
-                </div>
-                <p class="copyright">
-                    &copy; <span id="year"></span> Church in Prosser
+        <div class="container foot-content-wrap">
+            <div class="foot-content">
+                <p>
+                    <a href="https://maps.app.goo.gl/LC6Zyzcy8JXcVxQM9" target="_blank" rel="noopener noreferrer">505 N
+                        River Rd, Prosser, Washington 99350, USA</a>
                 </p>
+                <div class="foot-divider" aria-hidden="true"></div>
+                <p>info@churchinprosser.org</p>
             </div>
-        </footer>
+            <p class="copyright">
+                &copy; <span id="year"></span> Church in Prosser
+            </p>
+        </div>
+    </footer>
     <script type="module" src="js/main.js"></script>
 </body>
 
